@@ -13,14 +13,16 @@ public class firstNoneRepeatingCharacter{
     The main method aims to test the program.
     */
     public static void main(String[] args){
-        System.out.println(firstNoneRepeatingChar("welcome"));
+        String name = "mmooaayyaadd";
+        System.out.println(firstNoneRepeatingChar(name, createHashMap(name)));
     }
     
     /*
     Add characters and values to the hashmap.
-    @return the hash map for characters in the string.
+    @param input to be added by user.
+    @return charCount the hash map for characters in the string.
     */
-    public static HashMap<Character, Integer> firstNoneRepeatingChar(String input){
+    private static HashMap<Character, Integer> createHashMap(String input){
         HashMap<Character, Integer> charCount = new HashMap();
         for(int i=0; i<input.length(); i++){
             char charTobeProcessed = input.charAt(i);
@@ -31,5 +33,21 @@ public class firstNoneRepeatingCharacter{
             }
         }
         return charCount;
+    }
+    
+    /*
+    Get the first none repeated character.
+    @param input to be added by user.
+    @param charCount the hash map for characters in the string.
+    @return firstChar the first none repeated character.
+    */
+    public static char firstNoneRepeatingChar(String input, HashMap<Character, Integer> charCount){
+        for(int i=0; i<input.length(); i++){
+            char charTobeProcessed = input.charAt(i);
+            if(charCount.get(charTobeProcessed)==1){
+                return charTobeProcessed;
+            }
+        }
+        return '-';
     }
 }
