@@ -1,5 +1,6 @@
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 /*
 This program finds the first none repeated character in a string and returns it.
@@ -11,10 +12,20 @@ public class firstNoneRepeatingCharacter{
     
     /*
     The main method aims to test the program.
+    Type exit to exit the program else type a string.
     */
     public static void main(String[] args){
-        String name = "mmooaayyaad";
-        System.out.println(firstNoneRepeatingChar(name));
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String name = sc.nextLine();
+        
+        while(!(name.equals("exit"))){
+          System.out.println(firstNoneRepeatingChar(name));  
+          System.out.print("Enter a string: ");
+          name = sc.nextLine();
+        }
+        
+        
     }
     
     /*
